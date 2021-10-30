@@ -22,7 +22,14 @@ namespace UStart.Infrastructure.Context
         }
 
         public DbSet<GrupoProduto> GrupoProdutos { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
+
+
+
+
 
         public override int SaveChanges()
         {

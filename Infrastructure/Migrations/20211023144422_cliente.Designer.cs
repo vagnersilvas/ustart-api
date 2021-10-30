@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UStart.Infrastructure.Context;
@@ -9,9 +10,10 @@ using UStart.Infrastructure.Context;
 namespace UStart.Infrastructure.Migrations
 {
     [DbContext(typeof(UStartContext))]
-    partial class UStartContextModelSnapshot : ModelSnapshot
+    [Migration("20211023144422_cliente")]
+    partial class cliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,46 +123,6 @@ namespace UStart.Infrastructure.Migrations
                     b.ToTable("grupo_produtos");
                 });
 
-            modelBuilder.Entity("UStart.Domain.Entities.Produto", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<string>("CodigoExterno")
-                        .HasColumnType("text")
-                        .HasColumnName("codigo_externo");
-
-                    b.Property<string>("Descricao")
-                        .HasColumnType("text")
-                        .HasColumnName("descricao");
-
-                    b.Property<Guid>("GrupoProdutoId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("grupo_produto_id");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("text")
-                        .HasColumnName("nome");
-
-                    b.Property<decimal>("Preco")
-                        .HasColumnType("numeric")
-                        .HasColumnName("preco");
-
-                    b.Property<string>("UrlImagem")
-                        .HasColumnType("text")
-                        .HasColumnName("url_imagem");
-
-                    b.HasKey("Id")
-                        .HasName("pk_produtos");
-
-                    b.HasIndex("GrupoProdutoId")
-                        .HasDatabaseName("ix_produtos_grupo_produto_id");
-
-                    b.ToTable("produtos");
-                });
-
             modelBuilder.Entity("UStart.Domain.Entities.Usuario", b =>
                 {
                     b.Property<Guid>("Id")
@@ -192,18 +154,6 @@ namespace UStart.Infrastructure.Migrations
                         .HasName("pk_usuarios");
 
                     b.ToTable("usuarios");
-                });
-
-            modelBuilder.Entity("UStart.Domain.Entities.Produto", b =>
-                {
-                    b.HasOne("UStart.Domain.Entities.GrupoProduto", "GrupoProduto")
-                        .WithMany()
-                        .HasForeignKey("GrupoProdutoId")
-                        .HasConstraintName("fk_produtos_grupo_produtos_grupo_produto_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GrupoProduto");
                 });
 #pragma warning restore 612, 618
         }

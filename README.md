@@ -29,17 +29,24 @@ dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastruct
 
 #Criar grupo produto
 dotnet ef migrations add grupo_produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+# criar cliente
+dotnet ef migrations add cliente -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+# criar produto
+dotnet ef migrations add produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 ```
 
 
 ## Configuração do banco de dados
 
 ```
-Database=_BANCO_;
-Username=_USUARIO_;
-Password=_SENHA_;
-Host=ec2-52-200-68-5.compute-1.amazonaws.com;
-Port=5432;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
+Database=d12u2mbohu86bt;
+Username=ndbztyvxfbrveh;
+Password=c464bb425b213bc4b0906d78a680ad3ae3f4314a1b7e0946b3ca7058c2fcae98;
+Host=ec2-18-207-72-235.compute-1.amazonaws.com;
+Port=5432
+;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
 ```
 
 
