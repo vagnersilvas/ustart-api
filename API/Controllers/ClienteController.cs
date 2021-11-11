@@ -28,7 +28,7 @@ namespace UStart.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetClinete([FromQuery] string pesquisa)
+        public IActionResult GetCliente([FromQuery] string pesquisa)
         {
             return Ok(clienteRepository.Pesquisar(pesquisa));
         }
