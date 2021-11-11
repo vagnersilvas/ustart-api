@@ -11,6 +11,7 @@ https://docs.microsoft.com/pt-br/ef/core/cli/dotnet
 ### Migrations
 
 Antes de criar a migrations é necessário adicionar a referência do para a biblioteca do EF Design
+
 ```bash
 cd Infrastructure 
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.2
@@ -41,11 +42,11 @@ dotnet ef migrations add produto -c UStartContext --project ../Infrastructure/In
 ## Configuração do banco de dados
 
 ```
-Database=d12u2mbohu86bt;
-Username=ndbztyvxfbrveh;
-Password=c464bb425b213bc4b0906d78a680ad3ae3f4314a1b7e0946b3ca7058c2fcae98;
-Host=ec2-18-207-72-235.compute-1.amazonaws.com;
-Port=5432
+Database=;
+Username=;
+Password=;
+Host=;
+Port=
 ;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
 ```
 
