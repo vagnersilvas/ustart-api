@@ -10,31 +10,30 @@ namespace UStart.Domain.Workflows
     {
         private readonly IProdutoRepository _produtoRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public ProdutoWorkflow(IProdutoRepository produtoRepository, IUnitOfWork unitOfWork)
+        public ProdutoWorkflow(IProdutoRepository produtoReposotory, IUnitOfWork unitOfWork)
         {
-            _produtoRepository = produtoRepository;
+            _produtoRepository = produtoReposotory;
             _unitOfWork = unitOfWork;
         }
 
         public void Add(ProdutoCommand command)
         {
 
-            if(ValidarProduto(command) == false)
-            {
+            if (ValidarProduto(command) == false){
                 return;
             }
 
             var Produto = new Produto(command);
             _produtoRepository.Add(Produto);
-            _unitOfWork.Commit();
+            _unitOfWork.Commit();            
         }
 
         public void Update(Guid id, ProdutoCommand command){
 
-            if(ValidarProduto(command) == false)
-            {
+            if (ValidarProduto(command) == false){
                 return;
             }
+            
             var Produto = _produtoRepository.ConsultarPorId(id);
             if (Produto != null){
                 Produto.Update(command);
@@ -48,6 +47,7 @@ namespace UStart.Domain.Workflows
         }
 
         public void Delete(Guid id){
+
             var Produto = _produtoRepository.ConsultarPorId(id);
             if (Produto != null){
                 _produtoRepository.Delete(Produto);
@@ -57,18 +57,17 @@ namespace UStart.Domain.Workflows
             }            
         }
 
-        private bool ValidarProduto(ProdutoCommand command)
-        {
+        private bool ValidarProduto(ProdutoCommand command){
             if (string.IsNullOrEmpty(command.Nome))
             {
                 this.AddError("Nome", "Nome não informado");
             }
             if (command.GrupoProdutoId == Guid.Empty)
             {
-                this.AddError("Grupo produto", "Grupo produto não informado");
+                this.AddError("Grupo Produto", "Grupo produto não informado");
             }
 
-            return this.IsValid(); 
+            return this.IsValid();
         }
     }
 }
