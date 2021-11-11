@@ -122,7 +122,6 @@ namespace UStart.API
             services.AddTransient<IGrupoProdutoRepository, GrupoProdutoRepository>();
             services.AddTransient<IClienteRepository, ClienteRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
-
         }
 
         public static void RegisterWorkflows(IServiceCollection services)
@@ -132,7 +131,6 @@ namespace UStart.API
             services.AddTransient<GrupoProdutoWorkflow>();
             services.AddTransient<ClienteWorkflow>();
             services.AddTransient<ProdutoWorkflow>();
-
         }
 
         public static void ConfigureAuthentication(IServiceCollection services, IConfiguration configuration)

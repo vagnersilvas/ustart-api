@@ -1,5 +1,11 @@
 # Api - Projeto UStart
 
+## Projeto inicial
+
+Segue o código fonte do projeto inicial do curso
+https://github.com/silvagpe/ustart-api-inicial
+
+
 ## EF Core
 
 Instalar a ferramenta do EF no CLI
@@ -26,28 +32,49 @@ Como criar as migrations
 ```bash
 cd API
 dotnet ef migrations add usuarios -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
 dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 
 #Criar grupo produto
 dotnet ef migrations add grupo_produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 
+<<<<<<< HEAD
 # criar cliente
 dotnet ef migrations add cliente -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 
 # criar produto
 dotnet ef migrations add produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+=======
+#Criar clientes
+cd API
+dotnet ef migrations add cliente -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+#Criar produto
+cd API
+dotnet ef migrations add produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+
+>>>>>>> b8bc82799defb6cbaa877d7be776e2c59e54840c
 ```
 
 
 ## Configuração do banco de dados
 
 ```
+<<<<<<< HEAD
 Database=;
 Username=;
 Password=;
 Host=;
 Port=
 ;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
+=======
+Database=_BANCO_;
+Username=_USUARIO_;
+Password=_SENHA_;
+Host=_HOST_;
+Port=5432;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
+>>>>>>> b8bc82799defb6cbaa877d7be776e2c59e54840c
 ```
 
 

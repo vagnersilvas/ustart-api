@@ -31,8 +31,9 @@ namespace UStart.Infrastructure.Repositories
             pesquisa = pesquisa != null ? pesquisa.ToLower() : string.Empty;
 
             return _context
-            .Produtos
-            .Where(x => x.Descricao.ToLower().Contains(pesquisa))
+            .Produtos            
+            .Where(x => x.Descricao.ToLower().Contains(pesquisa)
+                || x.Nome.ToLower().Contains(pesquisa))
             .ToList();
         }
 

@@ -36,7 +36,7 @@ namespace UStart.Domain.Workflows
             return cliente;
         }
 
-        public void Update(Guid id, GrupoProdutoCommand command){
+        public void Update(Guid id, ClienteCommand command){
             
             var cliente = _clienteRepository.ConsultarPorId(id);
             if (cliente != null){
@@ -63,9 +63,6 @@ namespace UStart.Domain.Workflows
             }            
         }
 
-        public void Update(Guid id, ClienteCommand command)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
